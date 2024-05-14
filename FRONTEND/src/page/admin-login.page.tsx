@@ -8,12 +8,12 @@ export default function AdminLogin() {
 
             
                 <div className="w-1/2 lg:w-1/4 bg-white p-5 rounded-3xl">
-                    {/* <div className="flex justify-center mb-8">
-                        <img className="self-center" src="src/assets/img/logo/logo-jshop.png" width={"100px"} alt="" />
-                    </div> */}
-                    <div>
-                        <h3 className="text-xl mb-6">Welcome back</h3>
+                    <div className="flex justify-center mb-8">
+                        <img className="self-center" src="/src/assets/img/logo/logo-jshop.png" width={"100px"} alt="" />
                     </div>
+                    {/* <div> */}
+                        {/* <h3 className="text-xl mb-6 font-medium w-full text-center">Welcome back!</h3> */}
+                    {/* </div> */}
                     
                         <div className="mb-5">
                             {/* <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">Username</label> */}
