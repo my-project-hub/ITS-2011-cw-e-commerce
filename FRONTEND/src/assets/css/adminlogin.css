@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities{
+    .login-btn,.primary-btn {
+            font-size: 1em;
+            border-radius: 8px;
+            text-align: center;
+            background: linear-gradient(180deg,#4285f4,#486fef);
+            border: 0;
+            padding: 0 25px;
+            font-weight: 700;
+            color: #fff;
+            height: 42px;
+            line-height: 42px;
+            transition: all .2s;
+            box-shadow: inset 0 1px 0 hsla(0,0%,100%,.3);
+            width: 100%;
+            display: block;
+    }
+
+    .login-btn:hover,.primary-btn:hover {
+        font-size: 1em;
+        border-radius: 8px;
+        text-align: center;
+        background: linear-gradient(180deg,#486fef,#4285f4);
+        border: 0;
+        padding: 0 25px;
+        font-weight: 700;
+        color: #fff;
+        height: 42px;
+        line-height: 42px;
+        transition: all .2s;
+        box-shadow: inset 0 1px 0 hsla(0,0%,100%,.3);
+        width: 100%;
+        display: block;
+    }
+
+    .old-gray-btn{
+        
+            font-size: 1em;
+            height: 42px;
+            line-height: 40px;
+            border: 1px solid #bbb;
+            background: linear-gradient(180deg,#f7f8fa,#e7e9ec);
+            box-shadow: inset 0 1px 0 hsla(0,0%,100%,.3);
+            width:100%;        
+    }
+
+    .old-gray-btn:hover{
+        
+        font-size: 1em;
+        height: 42px;
+        line-height: 40px;
+        border: 1px solid #bbb;
+        background: linear-gradient(180deg,#e7e9ec, #f7f8fa);
+        box-shadow: inset 0 1px 0 hsla(0,0%,100%,.3);
+        width:100%;        
+}
+}
