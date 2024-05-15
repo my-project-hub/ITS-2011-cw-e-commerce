@@ -22,7 +22,7 @@ export default function AdminLogin() {
                                     <span className="ml-3">
                                         <FontAwesomeIcon className="text-gray-400" icon={faEnvelope} />
                                     </span>
-                                    <input type="text" name="username" id="username" autoComplete="username" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="email" />
+                                    <input type="text" name="username" id="username" autoComplete="username" className="focus:outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="email" />
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@ export default function AdminLogin() {
                                     <span className="ml-3">
                                         <FontAwesomeIcon className="text-gray-400" icon={faLock} />
                                     </span>
-                                    <input type="text" name="username" id="username" autoComplete="username" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="password" />
+                                    <input type="password" name="username" id="username" autoComplete="username" className="focus:outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="password" />
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,8 @@ export default function AdminLogin() {
                         </div>
                     </div>
                     <button type="submit" className="login-btn mb-5">Sign in</button>
-                    {/* <button type="submit" className="old-gray-btn mb-5">Login as vendor</button> */}
+                    {/* <button type="submit" className="old-gray-btn mb-5">Login as vendor</button>
+                    <button type="submit" className="old-gray-btn mb-5">Login as admin</button> */}
                 </div>
             </section>
         </>
