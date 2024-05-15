@@ -14,7 +14,10 @@ export default function AdminLayout(prop: Props) {
                 </div>
                 <div className=" bg-white w-screen border-b-2 flex-row">
                     <TopMenuBar />
-                    {prop.children}
+                    <div className="p-5">
+                        {prop.children}
+                    </div>
+                    
                 </div>
 
             </div>
