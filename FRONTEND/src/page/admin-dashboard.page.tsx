@@ -1,5 +1,6 @@
 import BarChart from "../component/bar-chart.component";
 import InfoCard from "../component/info-card.component";
+import OrderStatistics from "../component/order-static.component";
 import AdminLayout from "../layout/admin.layout";
 
 export default function AdminDashboard(){
@@ -13,6 +14,7 @@ export default function AdminDashboard(){
                 </div>
                 <div>
                     <BarChart />
+                    <OrderStatistics />
                 </div>
             </AdminLayout>
         </>

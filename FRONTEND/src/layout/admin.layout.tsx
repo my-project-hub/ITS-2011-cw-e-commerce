@@ -12,7 +12,7 @@ export default function AdminLayout(prop: Props) {
                 <div>
                     <MultiLevelSidebar />
                 </div>
-                <div className=" bg-white w-screen border-b-2 flex-row h-screen overflow-y-scroll">
+                <div className=" bg-[#f4f6f9] w-screen border-b-2 flex-row h-screen overflow-y-scroll">
                     <TopMenuBar />
                     <div className="p-5">
                         {prop.children}
