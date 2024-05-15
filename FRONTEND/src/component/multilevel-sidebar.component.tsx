@@ -22,6 +22,7 @@ import {
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Navigate, useNavigate } from "react-router";
 
 export default function MultiLevelSidebar() {
   const [open, setOpen] = React.useState(0);
@@ -29,6 +30,9 @@ export default function MultiLevelSidebar() {
   const handleOpen = (value:any) => {
     setOpen(open === value ? 0 : value);
   };
+
+  const navigate = useNavigate();
+
 
   return (
     <Card className="bg-white relative border-r-2 h-screen rounded-none w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
@@ -51,7 +55,7 @@ export default function MultiLevelSidebar() {
           //   />
           // }
         >
-          <ListItem className="p-0" selected={open === 1}>
+          <ListItem className="p-0" selected={open === 1} onClick={() => {navigate("/dashboard")}}>
             <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
               <ListItemPrefix>
                 <PresentationChartBarIcon className="h-5 w-5" />
@@ -107,8 +111,8 @@ export default function MultiLevelSidebar() {
                 </ListItemPrefix>
                 Bundle deals
               </ListItem>
-              <ListItem>
-                <ListItemPrefix>
+              <ListItem onClick={() => {navigate("/products")}}  placeholder={""} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                <ListItemPrefix  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Products
@@ -136,6 +140,18 @@ export default function MultiLevelSidebar() {
             <Cog6ToothIcon className="h-5 w-5" />
           </ListItemPrefix>
           Store
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Discount
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Schedule
         </ListItem>
         <ListItem className=" bottom-0">
           <ListItemPrefix>
