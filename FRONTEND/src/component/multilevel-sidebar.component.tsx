@@ -20,6 +20,8 @@ import {
   PowerIcon,
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function MultiLevelSidebar() {
   const [open, setOpen] = React.useState(0);
@@ -31,9 +33,13 @@ export default function MultiLevelSidebar() {
   return (
     <Card className="bg-white relative border-r-2 h-screen rounded-none w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4 border-b-0">
-        <Typography variant="h5" color="blue-gray">
+        {/* <Typography variant="h5" color="blue-gray">
           Sidebar
-        </Typography>
+        </Typography> */}
+        <div className="flex justify-between items-center">
+             <img className="self-center" src="/src/assets/img/logo/logo-jshop.png" width={"100px"} alt="" />
+             <FontAwesomeIcon fontSize={"25px"} icon={faBars}  className="cursor-pointer"/>
+        </div>
       </div>
       <List>
         <Accordion

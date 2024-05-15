@@ -21,10 +21,27 @@ export default function OrderStatistics(){
 
             <div className="flex gap-3 mt-3">
                 <InfoCard cardColor="bg-white" cardName="order cancelled" cardValue="0"/>
-                <InfoCard cardColor="bg-white" cardName="order cancelled" cardValue="0"/>
-                <InfoCard cardColor="bg-white" cardName="order cancelled" cardValue="0"/>
-                <InfoCard cardColor="bg-white" cardName="order cancelled" cardValue="0"/>
-                <InfoCard cardColor="bg-white" cardName="order cancelled" cardValue="0"/>
+                <InfoCard cardColor="bg-white" cardName="Pending orders" cardValue="0"/>
+                <InfoCard cardColor="bg-white" cardName="Confirmed orders" cardValue="0"/>
+                <InfoCard cardColor="bg-white" cardName="Package picked up" cardValue="0"/>
+                <InfoCard cardColor="bg-white" cardName="On the way" cardValue="0"/>
+                <InfoCard cardColor="bg-white" cardName="delivered" cardValue="0"/>
+            </div>
+            <div className="flex mt-3 bg-white px-5 py-4 rounded-xl gap-4">
+                <div className="flex-1">
+                    <p>Top category</p>
+                    <table className="w-full mt-4">
+                        <thead className="bg-blue-gray-400 h-10">
+                            <th>Title</th>
+                            <th>Sold</th>
+                            <th>Amount</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div className="flex-1">
+
+                </div>
             </div>
         </>
     )

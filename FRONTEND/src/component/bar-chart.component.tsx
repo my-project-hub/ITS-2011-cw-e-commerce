@@ -55,7 +55,7 @@ const { month, year, today } = currentMonth()
 export default function BarChart() {
     return (
         <>
-            <div className='w-full bg-white border-2 rounded-xl mt-10 p-5'>
+            <div className='w-full bg-white border-2 rounded-xl mt-3 p-5'>
                 <select
                     id="order-date-seclector"
                     name="order-date-seclector"
