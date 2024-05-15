@@ -4,7 +4,7 @@ export default function AdminDashboard(){
     return(
         <>
             <AdminLayout>
-                
+                <p>dilshan</p>
             </AdminLayout>
         </>
     );
