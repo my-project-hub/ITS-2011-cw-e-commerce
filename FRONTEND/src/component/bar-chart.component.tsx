@@ -44,8 +44,8 @@ export const data = {
     datasets: [
         {
             label: '',
-            data: [10000, 100],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            data: [10000, 100,5000,200,300,600,300,600,800,6000],
+            backgroundColor: '#4285f4',
         },
     ],
 };

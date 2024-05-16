@@ -56,8 +56,24 @@ export default function OrderStatistics() {
             </div> */}
             <div className="mt-3 bg-white p-6 rounded-xl">
                 <p className="font-bold mb-5">Top products</p>
-                <div className="w-full">
-                    <table className="w-full">
+                <div className="w-full flex gap-x-3">
+                    <table className="w-full border">
+                        <thead>
+                            <tr className="bg-[#e8f0fe] justify-between text-[#666]">
+                                <th className="text-left px-3 rounded-tl-xl py-2">Title</th>
+                                <th className="text-left px-3 py-2">Sold</th>
+                                <th className="text-left px-3 rounded-tr-xl py-2">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <TopProductTableBody imgUrl="https://cdn.ishop.cholobangla.com/uploads/thumb-product-51-1.webp" column1Value="Homesick New Home Reed Diffuser"column2Value="66" column3Value="$3,000"/>
+                            <TopProductTableBody imgUrl="https://cdn.ishop.cholobangla.com/uploads/thumb-product-51-1.webp" column1Value="Homesick New Home Reed Diffuser"column2Value="66" column3Value="$3,000"/>
+                            <TopProductTableBody imgUrl="https://cdn.ishop.cholobangla.com/uploads/thumb-product-51-1.webp" column1Value="Homesick New Home Reed Diffuser"column2Value="66" column3Value="$3,000"/>
+                            <TopProductTableBody imgUrl="https://cdn.ishop.cholobangla.com/uploads/thumb-product-51-1.webp" column1Value="Homesick New Home Reed Diffuser"column2Value="66" column3Value="$3,000"/>
+                            <TopProductTableBody imgUrl="https://cdn.ishop.cholobangla.com/uploads/thumb-product-51-1.webp" column1Value="Homesick New Home Reed Diffuser"column2Value="66" column3Value="$3,000"/>
+                        </tbody>
+                    </table>
+                    <table className="w-full border">
                         <thead>
                             <tr className="bg-[#e8f0fe] justify-between text-[#666]">
                                 <th className="text-left px-3 rounded-tl-xl py-2">Title</th>
@@ -90,7 +106,7 @@ interface tableBodyProp{
 function TopProductTableBody(prop:tableBodyProp) {
     return (
         <tr className="border-b hover:bg-[#f3f6ff]">
-            <td className="px-3 flex items-center py-3">
+            <td className="px-3 flex items-center">
                 <span>
                     <img width={"60px"} src={`${prop.imgUrl}`} alt="" />
                 </span>

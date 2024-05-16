@@ -35,7 +35,7 @@ export default function MultiLevelSidebar() {
 
 
   return (
-    <Card className="bg-white relative border-r-2 h-screen rounded-none w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+    <Card className="bg-white relative border-r-2 h-screen rounded-none w-full max-w-[15rem] p-1 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4 border-b-0">
         {/* <Typography variant="h5" color="blue-gray">
           Sidebar
@@ -45,7 +45,7 @@ export default function MultiLevelSidebar() {
              <FontAwesomeIcon fontSize={"25px"} icon={faBars}  className="cursor-pointer"/>
         </div>
       </div>
-      <List>
+      <List className="text-sm">
         <Accordion
           open={open === 1}
           // icon={
@@ -60,7 +60,7 @@ export default function MultiLevelSidebar() {
               <ListItemPrefix>
                 <PresentationChartBarIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <Typography color="blue-gray" className="mr-auto font-normal">
+              <Typography color="" className="text-sm mr-auto font-normal">
                 Dashboard
               </Typography>
             </AccordionHeader>
@@ -80,38 +80,38 @@ export default function MultiLevelSidebar() {
               <ListItemPrefix>
                 <ShoppingBagIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <Typography color="blue-gray" className="mr-auto font-normal">
+              <Typography color="" className="mr-auto font-normal text-sm">
                 Product
               </Typography>
             </AccordionHeader>
           </ListItem>
           <AccordionBody className="py-1">
             <List className="p-0">
-              <ListItem>
+              <ListItem className="text-sm">
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Categories
               </ListItem>
-              <ListItem>
+              <ListItem className="text-sm">
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Brands
               </ListItem>
-              <ListItem>
+              <ListItem className="text-sm">
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Attributes
               </ListItem>
-              <ListItem>
+              <ListItem className="text-sm">
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Bundle deals
               </ListItem>
-              <ListItem onClick={() => {navigate("/products")}}  placeholder={""} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              <ListItem className="text-sm" onClick={() => {navigate("/products")}}  placeholder={""} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 <ListItemPrefix  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
@@ -153,6 +153,37 @@ export default function MultiLevelSidebar() {
           </ListItemPrefix>
           Schedule
         </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Schedule
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Schedule
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Schedule
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Schedule
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Schedule
+        </ListItem>
+        
         <ListItem className=" bottom-0">
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
