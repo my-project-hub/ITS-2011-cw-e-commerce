@@ -8,9 +8,10 @@ export default function AdminDashboard(){
         <>
             <AdminLayout>
                 <div className="flex justify-between gap-5">
-                    <InfoCard cardName="Total products" cardValue={"5"} cardColor="bg-[#fef7da]"/>
-                    <InfoCard cardName="Total orders" cardValue={"5"} cardColor="bg-[#e9fdfb]"/>
-                    <InfoCard cardName="Total sells" cardValue={"5"} cardColor="bg-[#feeced]"/>
+                    <InfoCard withbackGroudStyle={true} cardName="Total products" cardValue={"5"} cardColor="bg-[#009EFB]"/>
+                    <InfoCard withbackGroudStyle={true} cardName="Total orders" cardValue={"5"} cardColor="bg-[#963BF1]"/>
+                    <InfoCard withbackGroudStyle={true} cardName="Total sells" cardValue={"5"} cardColor="bg-[#04B440]"/>
+                    <InfoCard withbackGroudStyle={true} cardName="Total customers" cardValue={"5"} cardColor="bg-[#FAAB34]"/>
                 </div>
                 <div>
                     <BarChart />
