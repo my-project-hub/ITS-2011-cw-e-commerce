@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router";
 import Table, { TableBody } from "../component/table.component";
 import AdminLayout from "../layout/admin.layout";
 
 const productTableColumn = ["title", "Status", "Brand", "Tax rule", "Purchased", "Selling", "Offered", "Created", "", "", ""]
 
 export default function AdminProduct() {
+
+    const navigate = useNavigate()
+
     return (
         <>
             <AdminLayout>
@@ -42,7 +46,7 @@ export default function AdminProduct() {
                         </div>
                     </div>
                     <div>
-                        <button className="primary-btn">Add product</button>
+                        <button onClick={() => navigate({pathname:"add"})} className="primary-btn">Add product</button>
                     </div>
                 </div>
                 <div className="bg-white mt-7 rounded-tl-xl">
