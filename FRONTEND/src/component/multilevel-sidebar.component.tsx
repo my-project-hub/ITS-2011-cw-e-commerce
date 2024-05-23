@@ -56,7 +56,7 @@ export default function MultiLevelSidebar() {
           // }
         >
           <ListItem className="p-0" selected={open === 1} onClick={() => { navigate("/dashboard"); } } placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
+            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
               <ListItemPrefix>
                 <PresentationChartBarIcon className="h-5 w-5" />
               </ListItemPrefix>
