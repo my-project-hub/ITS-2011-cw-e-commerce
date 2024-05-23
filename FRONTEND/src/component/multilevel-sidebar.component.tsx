@@ -76,7 +76,7 @@ export default function MultiLevelSidebar() {
               <ListItemPrefix placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 <ShoppingBagIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <Typography  className="mr-auto font-normal text-[1rem]"  onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              <Typography  className="mr-auto font-normal text-[1rem]" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  placeholder={undefined}>
                 Product
               </Typography>
             </AccordionHeader>
