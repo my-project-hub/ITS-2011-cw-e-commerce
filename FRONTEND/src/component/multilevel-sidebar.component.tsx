@@ -47,9 +47,8 @@ export default function MultiLevelSidebar() {
         </div>
       </div>
       <List className="text-[1rem]" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-        <Accordion
-          open={open === 1}
-          // icon={
+        <Accordion 
+          open={open === 1} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          // icon={
           //   <ChevronDownIcon
           //     strokeWidth={2.5}
           //     className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""} relative`}
