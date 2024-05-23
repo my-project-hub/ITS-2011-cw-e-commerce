@@ -46,7 +46,7 @@ export default function MultiLevelSidebar() {
              <FontAwesomeIcon fontSize={"25px"} icon={faBars}  className="cursor-pointer"/>
         </div>
       </div>
-      <List className="text-[1rem]">
+      <List className="text-[1rem]" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         <Accordion
           open={open === 1}
           // icon={
