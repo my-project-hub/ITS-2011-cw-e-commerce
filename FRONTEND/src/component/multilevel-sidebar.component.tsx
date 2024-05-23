@@ -35,17 +35,18 @@ export default function MultiLevelSidebar() {
 
 
   return (
-    <Card className="bg-white relative border-r-2 h-screen rounded-none w-full max-w-[15rem] p-1 shadow-xl shadow-blue-gray-900/5">
+    <Card className="bg-white relative border-r-2 h-screen rounded-none w-full max-w-[15rem] p-1 shadow-xl shadow-blue-gray-900/5" placeholder={""} onPointerEnterCapture={""} onPointerLeaveCapture={""}>
       <div className="mb-2 p-4 border-b-0">
         {/* <Typography variant="h5" color="blue-gray">
           Sidebar
         </Typography> */}
         <div className="flex justify-between items-center">
-             <img className="self-center" src="/src/assets/img/logo/logo-jshop.png" width={"100px"} alt="" />
+             <img className="self-center" src="https://remosnextjs.vercel.app/images/logo/logo.png" width={"100px"} alt="" />
+             {/* <img className="self-center" src="/src/assets/img/logo/logo-jshop.png" width={"100px"} alt="" /> */}
              <FontAwesomeIcon fontSize={"25px"} icon={faBars}  className="cursor-pointer"/>
         </div>
       </div>
-      <List className="text-sm">
+      <List className="text-[1rem]">
         <Accordion
           open={open === 1}
           // icon={
@@ -60,7 +61,7 @@ export default function MultiLevelSidebar() {
               <ListItemPrefix>
                 <PresentationChartBarIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <Typography color="" className="text-sm mr-auto font-normal">
+              <Typography color="" className="text-[1rem] mr-auto font-normal">
                 Dashboard
               </Typography>
             </AccordionHeader>
@@ -80,38 +81,38 @@ export default function MultiLevelSidebar() {
               <ListItemPrefix>
                 <ShoppingBagIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <Typography color="" className="mr-auto font-normal text-sm">
+              <Typography color="" className="mr-auto font-normal text-[1rem]">
                 Product
               </Typography>
             </AccordionHeader>
           </ListItem>
           <AccordionBody className="py-1">
             <List className="p-0">
-              <ListItem className="text-sm">
+              <ListItem className="text-[1rem]">
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Categories
               </ListItem>
-              <ListItem className="text-sm">
+              <ListItem className="text-[1rem]">
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Brands
               </ListItem>
-              <ListItem className="text-sm">
+              <ListItem className="text-[1rem]">
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Attributes
               </ListItem>
-              <ListItem className="text-sm">
+              <ListItem className="text-[1rem]">
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 Bundle deals
               </ListItem>
-              <ListItem className="text-sm" onClick={() => {navigate("/products")}}  placeholder={""} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              <ListItem className="text-[1rem]" onClick={() => {navigate("/products")}}  placeholder={""} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 <ListItemPrefix  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
