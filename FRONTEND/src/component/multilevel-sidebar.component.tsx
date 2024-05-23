@@ -35,7 +35,7 @@ export default function MultiLevelSidebar() {
 
 
   return (
-    <Card className="bg-white relative border-r-2 h-screen rounded-none w-full max-w-[15rem] p-1 shadow-xl shadow-blue-gray-900/5" placeholder={""} onPointerEnterCapture={""} onPointerLeaveCapture={""}>
+    <Card className="bg-white relative border-r-2 h-screen rounded-none w-full max-w-[15rem] p-1 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4 border-b-0">
         {/* <Typography variant="h5" color="blue-gray">
           Sidebar
@@ -46,21 +46,22 @@ export default function MultiLevelSidebar() {
              <FontAwesomeIcon fontSize={"25px"} icon={faBars}  className="cursor-pointer"/>
         </div>
       </div>
-      <List className="text-[1rem]" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-        <Accordion 
-          open={open === 1} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          // icon={
+      <List className="text-[1rem]">
+        <Accordion
+          open={open === 1}
+          // icon={
           //   <ChevronDownIcon
           //     strokeWidth={2.5}
           //     className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""} relative`}
           //   />
           // }
         >
-          <ListItem className="p-0" selected={open === 1} onClick={() => { navigate("/dashboard"); } } placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-              <ListItemPrefix  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          <ListItem className="p-0" selected={open === 1} onClick={() => {navigate("/dashboard")}}>
+            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
+              <ListItemPrefix>
                 <PresentationChartBarIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <Typography className="text-[1rem] mr-auto font-normal" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              <Typography color="" className="text-[1rem] mr-auto font-normal">
                 Dashboard
               </Typography>
             </AccordionHeader>
@@ -68,15 +69,19 @@ export default function MultiLevelSidebar() {
         </Accordion>
         <Accordion
           open={open === 2}
-          icon={<ChevronDownIcon
-            strokeWidth={2.5}
-            className={`mx-auto h-4 w-4 transition-transform ${open === 2 ? "rotate-180" : ""}`} />}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
-          <ListItem className="p-0" selected={open === 2}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            <AccordionHeader onClick={() => handleOpen(2)} className="border-b-0 p-3" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-              <ListItemPrefix placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          icon={
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`mx-auto h-4 w-4 transition-transform ${open === 2 ? "rotate-180" : ""}`}
+            />
+          }
+        >
+          <ListItem className="p-0" selected={open === 2}>
+            <AccordionHeader onClick={() => handleOpen(2)} className="border-b-0 p-3">
+              <ListItemPrefix>
                 <ShoppingBagIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <Typography  className="mr-auto font-normal text-[1rem]" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  placeholder={undefined}>
+              <Typography color="" className="mr-auto font-normal text-[1rem]">
                 Product
               </Typography>
             </AccordionHeader>
