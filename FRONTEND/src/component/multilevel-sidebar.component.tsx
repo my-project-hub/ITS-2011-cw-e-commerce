@@ -60,7 +60,7 @@ export default function MultiLevelSidebar() {
               <ListItemPrefix  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 <PresentationChartBarIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <Typography color="" className="text-[1rem] mr-auto font-normal">
+              <Typography className="text-[1rem] mr-auto font-normal" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 Dashboard
               </Typography>
             </AccordionHeader>
