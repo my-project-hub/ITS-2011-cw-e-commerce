@@ -1,7 +1,7 @@
-import ImageUpload from "../component/formComponent/image-upload.component";
-import { CheckBox, DropDown, RadioButton, TextInputWithLabel } from "../component/formComponent/input.component";
-import TextEditor from "../component/text-editor.component";
-import AdminLayout from "../layout/admin.layout";
+import ImageUpload from "../../component/formComponent/image-upload.component.tsx";
+import { CheckBox, DropDown, RadioButton, TextInputWithLabel } from "../../component/formComponent/input.component.tsx";
+import TextEditor from "../../component/text-editor.component.tsx";
+import AdminLayout from "../../layout/admin.layout.tsx";
 
 export default function AdminAddProduct() {
     return (

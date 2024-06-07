@@ -1,7 +1,7 @@
-import BarChart from "../component/bar-chart.component";
-import InfoCard from "../component/info-card.component";
-import OrderStatistics from "../component/order-static.component";
-import AdminLayout from "../layout/admin.layout";
+import BarChart from "../../component/bar-chart.component.tsx";
+import InfoCard from "../../component/info-card.component.tsx";
+import OrderStatistics from "../../component/order-static.component.tsx";
+import AdminLayout from "../../layout/admin.layout.tsx";
 
 export default function AdminDashboard(){
     return(
