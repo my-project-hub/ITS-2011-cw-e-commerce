@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
-import Table, { TableBody } from "../component/table.component";
-import AdminLayout from "../layout/admin.layout";
+import Table, { TableBody } from "../../component/table.component.tsx";
+import AdminLayout from "../../layout/admin.layout.tsx";
 
 const productTableColumn = ["title", "Status", "Brand", "Tax rule", "Purchased", "Selling", "Offered", "Created", "", "", ""]
 
