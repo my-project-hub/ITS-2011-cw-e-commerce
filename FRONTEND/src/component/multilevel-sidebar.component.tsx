@@ -185,7 +185,7 @@ export default function MultiLevelSidebar() {
           Schedule
         </ListItem>
         
-        <ListItem className=" bottom-0">
+        <ListItem className=" bottom-0" onClick={() => navigate("/login")}>
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
