@@ -1,6 +1,7 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import date from "date-and-time"
 
 const user = {
     name: 'Tom Cook',
@@ -26,9 +27,18 @@ function classNames(...classes) {
 }
 
 export default function TopMenuBar() {
+
+    useEffect(() => {
+
+    });
+
     return (
         <>
-            <div className=" bg-white w-full border-b-2 p-5 left-0 flex justify-end ">
+            <div className=" bg-white w-full border-b-2 p-5 left-0 flex items-center justify-between ">
+                <div>
+                    {/*date and time*/}
+                    <DateAndTime />
+                </div>
                 <div className="ml-4 flex items-center bg-white ">
                     <button
                         type="button"
@@ -77,6 +87,37 @@ export default function TopMenuBar() {
                         </Transition>
                     </Menu>
                 </div>
+            </div>
+        </>
+    )
+}
+
+export function DateAndTime() {
+    
+    const now = new Date();
+    const [time,setTime] = useState("");
+    const [dates,setDate] = useState("");
+    
+    useEffect(()=>{
+        setTimeout(() => {
+            setTime(date.format(now, 'HH:mm:ss'))
+        },1000);
+    });
+
+
+    useEffect(()=>{
+        setDate(date.format(now, 'YYYY-MM-DD'))
+        setTimeout(() => {
+            setDate(date.format(now, 'YYYY-MM-DD'))
+        },86400000);
+    });
+
+
+    return (
+        <>
+            <div className='flex gap-4'>
+                <p  className='font-bold font-sans text-gray-500'><span className='font-bold font-sans'>Date : </span>{dates}</p>
+                <p  className='font-bold font-sans text-gray-500'><span className='font-bold font-sans'>Time : </span>{time}</p>
             </div>
         </>
     )
