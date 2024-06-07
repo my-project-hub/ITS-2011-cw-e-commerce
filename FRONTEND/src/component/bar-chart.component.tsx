@@ -8,7 +8,6 @@ import {
     Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { currentMonth } from '../util/date-time';
 
 ChartJS.register(
     CategoryScale,
@@ -49,8 +48,6 @@ export const data = {
         },
     ],
 };
-
-const { month, year, today } = currentMonth()
 
 export default function BarChart() {
     return (
