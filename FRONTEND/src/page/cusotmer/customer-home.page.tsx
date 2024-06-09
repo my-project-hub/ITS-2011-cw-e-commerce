@@ -1,14 +1,21 @@
-import { Carousel } from "@material-tailwind/react";
-import CusotmerLayout from "../../layout/cusotmer.layout";
+// import { Carousel } from "@material-tailwind/react";
+// import CusotmerLayout from "../../layout/cusotmer.layout";
+import { DemoLayout } from "../../layout/demo.layout";
 
 export default function CustomerHome() {
     return (
         <>
-            <CusotmerLayout>
+            {/* <CusotmerLayout>
                 <div>
-                    {/* <img src="https://www.thilakawardhana.com/wp-content/uploads/2023/04/Cover-Talalla-scaled.jpg" alt="" /> */}
+                    <img src="https://www.thilakawardhana.com/wp-content/uploads/2023/04/Cover-Talalla-scaled.jpg" alt="" />
                 </div>
-            </CusotmerLayout>
+            </CusotmerLayout> */}
+
+            <>
+                <DemoLayout>
+                   <p>dilshan</p>
+                </DemoLayout>
+            </>
 
         </>
     )
