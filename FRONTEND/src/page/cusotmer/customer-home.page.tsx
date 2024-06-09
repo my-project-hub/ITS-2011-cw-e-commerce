@@ -1,8 +1,9 @@
 // import { Carousel } from "@material-tailwind/react";
 // import CusotmerLayout from "../../layout/cusotmer.layout";
+import { useId, useState } from "react";
 import { DemoLayout } from "../../layout/demo.layout";
 
-const categoreyImages:string[] = [
+const categoreyImages: string[] = [
     "https://www.ecomdeveloper.com/demo/image/cache/catalog/category/1-180x180.png",
     "https://www.ecomdeveloper.com/demo/image/cache/catalog/category/2-180x180.png",
     "https://www.ecomdeveloper.com/demo/image/cache/catalog/category/3-180x180.png",
@@ -10,7 +11,14 @@ const categoreyImages:string[] = [
 
 ];
 
+const buttonSlectedStyle = "border-2 border-dashed border-[#9c4399] rounded-lg"
+
 export default function CustomerHome() {
+
+    const btnId = useId()    
+    const [topProduct , setTopProduct] = useState(btnId+"-featured")
+
+
     return (
         <>
             {/* <CusotmerLayout>
@@ -23,10 +31,26 @@ export default function CustomerHome() {
                 <DemoLayout>
                     <section className="flex justify-between mt-5">
                         {/* category listed card */}
-                        <CategoreyCard mainCategory="Women" image={categoreyImages[0]}/>
-                        <CategoreyCard mainCategory="Men" image={categoreyImages[1]}/>
-                        <CategoreyCard mainCategory="Kids" image={categoreyImages[2]}/>
-                        <CategoreyCard mainCategory="Footwear" image={categoreyImages[3]}/>
+                        <CategoreyCard mainCategory="Women" image={categoreyImages[0]} />
+                        <CategoreyCard mainCategory="Men" image={categoreyImages[1]} />
+                        <CategoreyCard mainCategory="Kids" image={categoreyImages[2]} />
+                        <CategoreyCard mainCategory="Footwear" image={categoreyImages[3]} />
+                    </section>
+
+                    <section className="">
+                        {/* website and company features */}
+
+                    </section>
+                    <hr className="my-5" />
+                    <section className="mt-5">
+                        {/* Top Products */}
+                        <h4 className="font-medium text-3xl text-center">Top Products</h4>
+                        <div className="gap-3 flex justify-center mt-5">
+                            {/* add shared prefix id for below 3 buttons */}
+                            <button id={btnId + "-featured"} className={` text-lg p-2 border-2 ${topProduct === btnId+"-featured" ? buttonSlectedStyle :'border-transparent'}`} onClick={(e:any) => setTopProduct(e.target.id)}>Featured</button>
+                            <button id={btnId + "-bestSeller"} className={`text-lg p-2 border-2  ${topProduct === btnId+"-bestSeller" ? buttonSlectedStyle :'border-transparent'}`} onClick={(e:any) => setTopProduct(e.target.id)}>Best seller</button>
+                            <button id={btnId + "-latest"} className={`text-lg p-2 border-2  ${topProduct === btnId+"-latest" ? buttonSlectedStyle :'border-transparent'}`} onClick={(e:any) => setTopProduct(e.target.id)}>Latest</button>
+                        </div>
                     </section>
                 </DemoLayout>
             </>
@@ -37,7 +61,7 @@ export default function CustomerHome() {
 
 interface CategoryProp {
     mainCategory: string
-    image:string
+    image: string
 }
 function CategoreyCard(prop: CategoryProp) {
     return (
@@ -60,3 +84,5 @@ function CategoreyCard(prop: CategoryProp) {
         </>
     );
 }
+
+
