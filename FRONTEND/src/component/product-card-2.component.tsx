@@ -13,9 +13,11 @@ export default function ProductCard() {
                     <p className="font-bold mt-2">Girls Lehenga Choli</p> {/* product name */}
                     <p>Rs <span>1000.00</span><span className="text-gray-500"><span> Rs</span> 500.00</span></p>
                     <small>Tax: Rs 100.00</small>
+                    <div className="flex gap-1">
                     <div className="grid grid-cols-5 mt-2">
                         <ColorSelector colors="red" setColor={setColor}/>
                         <ColorSelector colors="green" setColor={setColor}/>
+                    </div>
                     </div>
                     <select id="country" name="country" autoComplete="country-name" className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                         <option>United States</option>

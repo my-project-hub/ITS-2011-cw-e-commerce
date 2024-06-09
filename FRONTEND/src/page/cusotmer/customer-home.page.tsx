@@ -56,7 +56,7 @@ export default function CustomerHome() {
                             <div className="mt-5 grid grid-cols-4 gap-4">
                                 {topProduct === btnId + "-featured" && <FeaturedProduct />}
                                 {topProduct ===  btnId + "-bestSeller" && <BestSellerProduct />}
-                                {topProduct ===  btnId + "-latest" && <FeaturedProduct />}
+                                {topProduct ===  btnId + "-latest" && <LatestProduct />}
                             </div>
                         </div>
                     </section>
