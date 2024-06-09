@@ -71,9 +71,12 @@ export function DemoLayout({children}:React.PropsWithChildren) {
                 </Carousel>
             </div>
 
-            <main className='my-3'>
+            <main className='my-3 flex justify-center'>
                 {/* injecting the childredn components her */}
-                {children}
+                <div className='w-full px-[180px]'>
+                    {children}
+                </div>
+                
             </main>
 
             <footer className='w-full'>
