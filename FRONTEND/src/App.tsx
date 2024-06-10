@@ -13,6 +13,7 @@ import { WomensLingerieInnerWear } from './page/cusotmer/womens-wear/lingerie-in
 import { WomensNightWear } from './page/cusotmer/womens-wear/night-wear.page.tsx';
 import { WomenSportsWear } from './page/cusotmer/womens-wear/sports-wear.page.tsx';
 import WomenAccessories from './page/cusotmer/womens-wear/accessories.page.tsx';
+import ProductView from './page/cusotmer/product-view.page.tsx';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
           <Route path='/categories/women/nightwear-wear' element={<WomensNightWear />}/>
           <Route path='/categories/women/sports-wear' element={<WomenSportsWear />}/>
           <Route path='/categories/women/accessories' element={<WomenAccessories />}/>
+          <Route path='/categories/top/product/featured/:productId' element={<ProductView />}/>
         </Routes>
       </BrowserRouter>
     </>

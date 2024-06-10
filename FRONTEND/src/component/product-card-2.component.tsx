@@ -1,11 +1,13 @@
 import { useState } from "react"
+import { useNavigate } from "react-router";
 
 export default function ProductCard() {
 
     const [color, setColor] = useState("");
+    const navigate = useNavigate()
     return (
         <>
-            <div className="w-[313px] border px-2 pb-4 rounded-lg ">
+            <div className="w-[313px] border px-2 pb-4 rounded-lg " onClick={() => navigate({pathname:"/categories/top/product/featured/123"})}>
                 <div className="w-full h-[313px] ">
                     <img src="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg" alt="" />
                 </div>
@@ -16,7 +18,7 @@ export default function ProductCard() {
                     <div className="flex gap-1">
                     <div className="grid grid-cols-5 mt-2">
                         <ColorSelector colors="red" setColor={setColor}/>
-                        <ColorSelector colors="green" setColor={setColor}/>
+                        <ColorSelector colors="#00FF00" setColor={setColor}/>
                     </div>
                     </div>
                     <select id="country" name="country" autoComplete="country-name" className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
