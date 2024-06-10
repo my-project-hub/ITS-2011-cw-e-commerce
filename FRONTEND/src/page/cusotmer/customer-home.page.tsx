@@ -70,11 +70,12 @@ export default function CustomerHome() {
 function FeaturedProduct() {
     return (
         <>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0052-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0054-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0052-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg"/>
+
         </>
     )
 }
@@ -82,9 +83,17 @@ function FeaturedProduct() {
 function BestSellerProduct() {
     return (
         <>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0052-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0054-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0052-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0052-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0054-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0052-0-315x315.jpg"/>
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg"/>
+
         </>
     )
 }
@@ -92,7 +101,7 @@ function BestSellerProduct() {
 function LatestProduct(){
     return(
         <>
-            <ProductCard />
+            <ProductCard productImage="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg"/>
         </>
     )
 }

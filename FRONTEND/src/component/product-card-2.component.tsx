@@ -1,7 +1,11 @@
 import { useState } from "react"
 import { useNavigate } from "react-router";
 
-export default function ProductCard() {
+interface Prop{
+    productImage:string
+}
+
+export default function ProductCard(prop:Prop) {
 
     const [color, setColor] = useState("");
     const navigate = useNavigate()
@@ -9,7 +13,7 @@ export default function ProductCard() {
         <>
             <div className="w-[313px] border px-2 pb-4 rounded-lg " onClick={() => navigate({pathname:"/categories/top/product/featured/123"})}>
                 <div className="w-full h-[313px] ">
-                    <img src="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg" alt="" />
+                    <img src={prop.productImage} alt="" />
                 </div>
                 <div className="">
                     <p className="font-bold mt-2 hover:text-[#9c4399] cursor-pointer">Girls Lehenga Choli</p> {/* product name */}
