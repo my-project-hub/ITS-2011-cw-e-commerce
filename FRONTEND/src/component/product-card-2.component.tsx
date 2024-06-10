@@ -12,8 +12,8 @@ export default function ProductCard() {
                     <img src="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg" alt="" />
                 </div>
                 <div className="">
-                    <p className="font-bold mt-2">Girls Lehenga Choli</p> {/* product name */}
-                    <p>Rs <span>1000.00</span><span className="text-gray-500"><span> Rs</span> 500.00</span></p>
+                    <p className="font-bold mt-2 hover:text-[#9c4399] cursor-pointer">Girls Lehenga Choli</p> {/* product name */}
+                    <p>Rs <span>1000.00 <span> </span></span><span className="text-gray-500 line-through"><span>Rs</span> 500.00</span></p>
                     <small>Tax: Rs 100.00</small>
                     <div className="flex gap-1">
                     <div className="grid grid-cols-5 mt-2">
