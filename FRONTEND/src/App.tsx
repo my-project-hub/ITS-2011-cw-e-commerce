@@ -27,11 +27,11 @@ function App() {
           <Route path='/products/add' element={<AdminAddProduct />} />
         </Routes>
       </BrowserRouter>
-      <BrowserRouter >
+      <BrowserRouter basename='/'>
         <Routes>
+        <Route path='/' element={<CustomerHome />}/>
           <Route path='login' element={<CusotmerLogin />}/>
           <Route path='register' element={<CustomerRegister />}/>
-          <Route path='/' element={<CustomerHome />}/>
           <Route path='/categories/women/casual-wear' element={<WomensCasualWear />}/>
           <Route path='/categories/women/formal-wear' element={<WomensFormalWear />}/>
           <Route path='/categories/women/ethnic-wear' element={<WomensEthnicWear />}/>

@@ -1,16 +1,9 @@
-import { useNavigate } from 'react-router'
-import '../assets/css/styles.scss'
-import Carousel from 'react-bootstrap/Carousel';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faPinterest, faTwitter, faInstagram, faCcMastercard, faCcVisa } from "@fortawesome/free-brands-svg-icons"
-import React, { ReactNode } from 'react';
-// import ExampleCarouselImage from 'components/ExampleCarouselImage';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavbarOptions } from "./demo.layout";
+import { faCcMastercard, faCcVisa, faFacebookF, faInstagram, faPinterest, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-export function DemoLayout({children}:React.PropsWithChildren) {
-
-    const navigate = useNavigate()
-
-    return (
+export default function ProductViewLayout({children}:React.PropsWithChildren){
+    return(
         <>
             <div className='bg-[#9c4399] relative'>
                 <nav className='flex justify-center'>
@@ -39,36 +32,6 @@ export function DemoLayout({children}:React.PropsWithChildren) {
                         </div>
                     </div>
                 </nav>
-            </div>
-            <div className='w-full'>
-                <Carousel className='z-[-1]'>
-                    <Carousel.Item>
-                        {/* <ExampleCarouselImage text="First slide" /> */}
-                        <img src="https://www.ecomdeveloper.com/demo/image/cache/catalog/slider/sld1-1920x800.jpg" alt="" />
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        {/* <ExampleCarouselImage text="Second slide" /> */}
-                        <img src="https://www.ecomdeveloper.com/demo/image/cache/catalog/slider/sld1-1920x800.jpg" alt="" />
-                        <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        {/* <ExampleCarouselImage text="Third slide" /> */}
-                        <img src="https://www.ecomdeveloper.com/demo/image/cache/catalog/slider/sld1-1920x800.jpg" alt="" />
-                        <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            </p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
             </div>
 
             <main className='my-3 flex justify-center'>
@@ -201,15 +164,6 @@ export function DemoLayout({children}:React.PropsWithChildren) {
                     </div>
                 </div>
             </footer>
-
-        </>
-    )
-}
-
-export function NavbarOptions() {
-    return (
-        <>
-            <p className='m-0'>dils</p>
         </>
     )
 }
