@@ -4,9 +4,12 @@ import Carousel from 'react-bootstrap/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faPinterest, faTwitter, faInstagram, faCcMastercard, faCcVisa } from "@fortawesome/free-brands-svg-icons"
 import React, { ReactNode } from 'react';
+import { Fragment } from 'react'
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
-export function DemoLayout({children}:React.PropsWithChildren) {
+export function DemoLayout({ children }: React.PropsWithChildren) {
 
     const navigate = useNavigate()
 
@@ -21,10 +24,10 @@ export function DemoLayout({children}:React.PropsWithChildren) {
                                 <img className=" mr-2" src="https://www.ecomdeveloper.com/demo/image/catalog/logodemo.png" alt="logo" />
                             </div>
                             <div className='flex gap-5'>
-                                <NavbarOptions />
-                                <NavbarOptions />
-                                <NavbarOptions />
-                                <NavbarOptions />
+                                <NavbarOptions category='WOMEN'/>
+                                <NavbarOptions category='MEN'/>
+                                <NavbarOptions category='KIDS'/>
+                                <NavbarOptions category='FOOT WEAR'/>
                             </div>
                             <div className="text-sm flex items-center gap-3">
                                 {/* <p>dd</p> */}
@@ -76,7 +79,7 @@ export function DemoLayout({children}:React.PropsWithChildren) {
                 <div className='w-full px-[180px]'>
                     {children}
                 </div>
-                
+
             </main>
 
             <footer className='w-full'>
@@ -96,7 +99,7 @@ export function DemoLayout({children}:React.PropsWithChildren) {
                         </div>
                         <div className='flex justify-center absolute w-full'>
                             <div className='bg-white w-2/3 flex border p-4 justify-between items-center rounded-lg'>
-                                <div className='flex items-center gap-2'>
+                                <div className='flex items-center gap-2 relative'>
                                     <FontAwesomeIcon icon={faFacebookF} className='bg-gray-200 p-2 rounded' />
                                     <FontAwesomeIcon icon={faInstagram} className='bg-gray-200 p-2 rounded' />
                                     <FontAwesomeIcon icon={faPinterest} className='bg-gray-200 p-2 rounded' />
@@ -197,7 +200,7 @@ export function DemoLayout({children}:React.PropsWithChildren) {
                     <small className='text-center block mb-1'>Powered By Demo Shop Pvt Ltd My Demo Shop @ 2024</small>
                     <div className='flex gap-2 justify-center'>
                         <FontAwesomeIcon icon={faCcVisa} className='text-2xl' />
-                        <FontAwesomeIcon icon={faCcMastercard} className='text-2xl'/>
+                        <FontAwesomeIcon icon={faCcMastercard} className='text-2xl' />
                     </div>
                 </div>
             </footer>
@@ -206,10 +209,107 @@ export function DemoLayout({children}:React.PropsWithChildren) {
     )
 }
 
-export function NavbarOptions() {
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
+
+interface Prop{
+    category: string
+}
+
+export function NavbarOptions({category}:Prop) {
     return (
         <>
-            <p className='m-0'>dils</p>
+            {/* when hover below div containe
+            <div className='group'>
+                
+                <div className='bg-red-100 w-[100px] flex justify-center '>
+                    <p className='m-0'>dils</p>
+                </div>
+                {this div need to be visible other wise invisible}
+                <div className=' group-hover:visible absolute  '>
+                    <p>11111111111111111111111</p>
+                </div>
+            </div> */}
+            <Menu as="div" className="relative inline-block text-left">
+      <div>
+        <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+          {category}
+          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+        </MenuButton>
+      </div>
+
+      <Transition
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1">
+            <MenuItem>
+              {({ focus }) => (
+                <a
+                  href="#"
+                  className={classNames(
+                    focus ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Account settings
+                </a>
+              )}
+            </MenuItem>
+            <MenuItem>
+              {({ focus }) => (
+                <a
+                  href="#"
+                  className={classNames(
+                    focus ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Support
+                </a>
+              )}
+            </MenuItem>
+            <MenuItem>
+              {({ focus }) => (
+                <a
+                  href="#"
+                  className={classNames(
+                    focus ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  License
+                </a>
+              )}
+            </MenuItem>
+            <form method="POST" action="#">
+              <MenuItem>
+                {({ focus }) => (
+                  <button
+                    type="submit"
+                    className={classNames(
+                      focus ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block w-full px-4 py-2 text-left text-sm'
+                    )}
+                  >
+                    Sign out
+                  </button>
+                )}
+              </MenuItem>
+            </form>
+          </div>
+        </MenuItems>
+      </Transition>
+    </Menu>
+  
+
         </>
     )
 }
