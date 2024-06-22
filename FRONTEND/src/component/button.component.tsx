@@ -6,7 +6,7 @@ export function GoogleAndAppleSignInBtn() {
                     <button
                         className="w-full flex items-center justify-center bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 py-2 px-4 rounded shadow-sm"
                     >
-                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" className="w-6 h-6 mr-2" />
+                        {/* <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" className="w-6 h-6 mr-2" /> */}
                         Log in with Google
                     </button>
                 </div>

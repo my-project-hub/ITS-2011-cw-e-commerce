@@ -24,8 +24,8 @@ function App() {
       <BrowserRouter basename='/'>
         <Routes>
         <Route path='/' element={<CustomerHome />}/>
-          <Route path='login' element={<CusotmerLogin />}/>
-          <Route path='register' element={<CustomerRegister />}/>
+          <Route path='/login' element={<CusotmerLogin />}/>
+          <Route path='/register' element={<CustomerRegister />}/>
           <Route path='/categories/top/product/featured/:productId' element={<ProductView />}/>
           <Route path='/category/:categoryName/:subCategory' element={<ProductList />}/>
         </Routes>
