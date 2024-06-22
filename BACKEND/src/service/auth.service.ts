@@ -42,17 +42,18 @@ export async function validateAdmin(req: Request, res: Response) {
 
         const { email, password } = req.body;
         //check the user available with the requested email
-        const user = await adminModel.findOne({ email });
-        if (!user) throw new Error("can not found user with email");
+        const admin = await adminModel.findOne({ email });
+        if (!admin) throw new Error("can not found user with email");
 
         //if user is avaialble check the password
-        const validate = bcrypt.compareSync(password, user.password)
-        if (!validate) throw new Error("password is wrong")
+        const validate = false;
+        if(!(admin.password === password)) throw new Error("password is wrong")
+        // if (!validate) throw new Error("password is wrong")
 
         const accessToken = jwt.sign(
             {
-                _id: user.id,
-                email: user.email,
+                _id: admin.id,
+                email: admin.email,
 
             },
             process.env.REFRESHTOKEN_KEY
