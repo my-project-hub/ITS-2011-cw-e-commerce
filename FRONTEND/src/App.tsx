@@ -14,6 +14,7 @@ import { WomensNightWear } from './page/cusotmer/womens-wear/night-wear.page.tsx
 import { WomenSportsWear } from './page/cusotmer/womens-wear/sports-wear.page.tsx';
 import WomenAccessories from './page/cusotmer/womens-wear/accessories.page.tsx';
 import ProductView from './page/cusotmer/product-view.page.tsx';
+import ProductList from './page/cusotmer/product-list.page.tsx';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
           <Route path='/categories/women/sports-wear' element={<WomenSportsWear />}/>
           <Route path='/categories/women/accessories' element={<WomenAccessories />}/>
           <Route path='/categories/top/product/featured/:productId' element={<ProductView />}/>
+          <Route path='/category/:categoryName/:subCategory' element={<ProductList />}/>
         </Routes>
       </BrowserRouter>
     </>
