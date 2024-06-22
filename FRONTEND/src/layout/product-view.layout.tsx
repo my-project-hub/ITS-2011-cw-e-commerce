@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavbarOptions } from "./demo.layout";
 import { faCcMastercard, faCcVisa, faFacebookF, faInstagram, faPinterest, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { footWearNavList, kidsNavList, menNavList, womenNavList } from "../assets/navigation.list";
 
 export default function ProductViewLayout({children}:React.PropsWithChildren){
     return(
@@ -14,10 +15,10 @@ export default function ProductViewLayout({children}:React.PropsWithChildren){
                                 <img className=" mr-2" src="https://www.ecomdeveloper.com/demo/image/catalog/logodemo.png" alt="logo" />
                             </div>
                             <div className='flex gap-5'>
-                                <NavbarOptions />
-                                <NavbarOptions />
-                                <NavbarOptions />
-                                <NavbarOptions />
+                            <NavbarOptions category='WOMEN' subCategory={womenNavList} />
+                                <NavbarOptions category='MEN' subCategory={menNavList} />
+                                <NavbarOptions category='KIDS' subCategory={kidsNavList}/>
+                                <NavbarOptions category='FOOT WEAR' subCategory={footWearNavList}/>
                             </div>
                             <div className="text-sm flex items-center gap-3">
                                 {/* <p>dd</p> */}
