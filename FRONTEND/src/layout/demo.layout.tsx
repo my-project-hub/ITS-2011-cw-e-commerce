@@ -7,6 +7,7 @@ import React, { ReactNode } from 'react';
 import { Fragment } from 'react'
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { footWearNavList, kidsNavList, menNavList, womenNavList } from '../assets/navigation.list';
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
 export function DemoLayout({ children }: React.PropsWithChildren) {
@@ -24,10 +25,10 @@ export function DemoLayout({ children }: React.PropsWithChildren) {
                                 <img className=" mr-2" src="https://www.ecomdeveloper.com/demo/image/catalog/logodemo.png" alt="logo" />
                             </div>
                             <div className='flex gap-5'>
-                                <NavbarOptions category='WOMEN'/>
-                                <NavbarOptions category='MEN'/>
-                                <NavbarOptions category='KIDS'/>
-                                <NavbarOptions category='FOOT WEAR'/>
+                                <NavbarOptions category='WOMEN' subCategory={womenNavList} />
+                                <NavbarOptions category='MEN' subCategory={menNavList} />
+                                <NavbarOptions category='KIDS' subCategory={kidsNavList}/>
+                                <NavbarOptions category='FOOT WEAR' subCategory={footWearNavList}/>
                             </div>
                             <div className="text-sm flex items-center gap-3">
                                 {/* <p>dd</p> */}
@@ -214,11 +215,12 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-interface Prop{
-    category: string
+interface Prop {
+    category: string,
+    subCategory: any[]
 }
 
-export function NavbarOptions({category}:Prop) {
+export function NavbarOptions({ category, subCategory }: Prop) {
     return (
         <>
             {/* when hover below div containe
@@ -233,24 +235,24 @@ export function NavbarOptions({category}:Prop) {
                 </div>
             </div> */}
             <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {category}
-          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-        </MenuButton>
-      </div>
+                <div>
+                    <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900 border-none ring-0 ring-inset  hover:bg-gray-50">
+                        {category}
+                        <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+                    </MenuButton>
+                </div>
 
-      <Transition
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            <MenuItem>
+                <Transition
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                >
+                    <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div className="py-1">
+                            {/* <MenuItem>
               {({ focus }) => (
                 <a
                   href="#"
@@ -262,8 +264,8 @@ export function NavbarOptions({category}:Prop) {
                   Account settings
                 </a>
               )}
-            </MenuItem>
-            <MenuItem>
+            </MenuItem> */}
+                            {/* <MenuItem>
               {({ focus }) => (
                 <a
                   href="#"
@@ -303,12 +305,32 @@ export function NavbarOptions({category}:Prop) {
                   </button>
                 )}
               </MenuItem>
-            </form>
-          </div>
-        </MenuItems>
-      </Transition>
-    </Menu>
-  
+            </form> */}
+
+                            {subCategory.map((element, index) => {
+                                return (
+                                    <MenuItem>
+                                        {({ focus }) => (
+                                            <a
+                                                href={element.url}
+                                                className={classNames(
+                                                    focus ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                    'block px-4 py-2 text-sm'
+                                                )}
+                                            >
+                                                {element.name}
+                                            </a>
+                                        )}
+                                    </MenuItem>
+                                )
+                            }
+                            )}
+
+                        </div>
+                    </MenuItems>
+                </Transition>
+            </Menu>
+
 
         </>
     )
