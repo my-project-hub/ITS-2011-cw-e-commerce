@@ -1,3 +1,4 @@
+// import 'dotenv/config'
 import AdminDashboard from './page/admin/admin-dashboard.page.tsx';
 import AdminLogin from './page/admin/admin-login.page.tsx'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -10,6 +11,9 @@ import ProductView from './page/cusotmer/product-view.page.tsx';
 import ProductList from './page/cusotmer/product-list.page.tsx';
 
 function App() {
+
+  // dotenv.config()
+  
 
   return (
     <>
