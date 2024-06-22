@@ -3,8 +3,9 @@
 import { useId, useState } from "react";
 import { DemoLayout } from "../../layout/demo.layout";
 import ProductCard from "../../component/product-card-2.component";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { footWearNavList, kidsNavList, menNavList, womenNavList } from "../../assets/navigation.list";
+import { authorization } from "../../util/authorization";
 
 const categoreyImages: string[] = [
     "https://www.ecomdeveloper.com/demo/image/cache/catalog/category/1-180x180.png",
@@ -17,6 +18,13 @@ const categoreyImages: string[] = [
 const buttonSlectedStyle = "border-2 border-dashed border-[#9c4399] rounded-lg"
 
 export default function CustomerHome() {
+
+    
+    const navigate = useNavigate();
+
+    if(!authorization()){
+        navigate({pathname:"/login"})
+    }
 
     const btnId = useId()
     const [topProduct, setTopProduct] = useState(btnId + "-featured")

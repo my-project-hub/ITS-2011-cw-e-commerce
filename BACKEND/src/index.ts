@@ -4,11 +4,13 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from "cors"
 import auth from './controller/auth.controller';
+import 'dotenv/config'
 
 export const app = express();
 app.use(cors("*"))
 app.use(bodyParser.json())
 const port = 5000;
+
 
 app.use("/api/v1/auth", auth)
 app.use("/api/v1/user", user)

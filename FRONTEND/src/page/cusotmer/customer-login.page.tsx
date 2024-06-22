@@ -2,12 +2,16 @@ import { useForm } from "react-hook-form";
 import { GoogleAndAppleSignInBtn } from "../../component/button.component";
 import { ErrorMessage } from "@hookform/error-message";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import 'dotenv/config'
 
 export default function CusotmerLogin() {
 
+
+
     const [error, setError] = useState("");
     const {handleSubmit, register, formState: { errors }} = useForm();
+    const navigate = useNavigate()
     // env.config()
 
     function onSubmit(data:any){
@@ -23,7 +27,14 @@ export default function CusotmerLogin() {
             if(!e.ok){
                 const error = await e.json()
                 setError(error.message);
+                
+
+            }else{
+               const response = await e.json();
+                localStorage.setItem("accessToken",response.accessToken);
+                navigate({pathname:"/"})
             }
+            
         });
     }
 

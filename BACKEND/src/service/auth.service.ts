@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import usermodel from "../model/user.model";
 import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
 export async function validateUser(req: Request, res: Response) {
     try {
@@ -14,11 +15,21 @@ export async function validateUser(req: Request, res: Response) {
         const validate = bcrypt.compareSync(password, user.password)
         if (!validate) throw new Error("password is wrong")
 
-        res.end();
+        const accessToken = jwt.sign(
+            {
+                _id: user.id,
+                email: user.email,
+
+            },
+            process.env.REFRESHTOKEN_KEY
+        )
+
+        // res.cookie("acessToken",accessToken,{httpOnly:true,secure:true}).send();
+        res.json({accessToken}).send();
 
     } catch (e) {
-        if(e.message === "can not found user with email") res.status(401).json({ message: e.message}).send()
-        if(e.message === "password is wrong") res.status(401).json({ message: e.message}).send()
+        if (e.message === "can not found user with email") res.status(401).json({ message: e.message }).send()
+        if (e.message === "password is wrong") res.status(401).json({ message: e.message }).send()
         res.status(500).send()
     }
 
