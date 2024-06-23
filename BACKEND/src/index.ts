@@ -6,6 +6,7 @@ import cors from "cors"
 import auth from './controller/auth.controller';
 import 'dotenv/config'
 import product from './controller/product.controller';
+import category from './controller/category.controller';
 
 export const app = express();
 app.use(cors("*"))
@@ -16,6 +17,7 @@ const port = 5000;
 app.use("/api/v1/auth", auth)
 app.use("/api/v1/user", user)
 app.use("/api/v1/product", product)
+app.use("/api/v1/category", category)
 
 
 
