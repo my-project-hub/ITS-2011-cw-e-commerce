@@ -6,6 +6,7 @@ import AdminLayout from "../../layout/admin.layout.tsx";
 import { Controller, useForm } from "react-hook-form";
 import axios from 'axios'
 import { elements } from "chart.js";
+import { ErrorMessage } from "@hookform/error-message";
 
 export default function AdminAddProduct() {
 
@@ -54,13 +55,13 @@ export default function AdminAddProduct() {
         <>
             <AdminLayout>
                 <form action="" onSubmit={handleSubmit(onSubmit)}>
-
-
                     <div className="flex justify-center">
                         <div className="lg:w-1/2 bg-white p-5 border rounded-xl">
                             <h4 className="text-xl">Product form</h4>
                             <hr className="mt-5" />
-                            <Controller name="title" control={control} render={({ field }: any) => <TextInputWithLabel {...field} labelName="Title" gap="py-3" />} />
+                            <Controller rules={{required:true, minLength:10}} name="title" control={control} render={({ field }: any) => <TextInputWithLabel {...field} labelName="Title" gap="py-3" />} />
+                            {/* <ErrorMessage className="text-red-500 text-sm font-medium" errors={errors} name="title" as="p" /> */}
+
                             {/* <TextInputWithLabel labelName="Title" gap="py-3" /> */}
                             {/* <TextInputWithLabel labelName="Slug" gap="py-3" /> */}
                             <div className="flex gap-x-5">
@@ -76,6 +77,7 @@ export default function AdminAddProduct() {
                                     <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">Categories</label>
                                     <div className="mt-2">
                                         <select onChange={categoryHandle}  id="country"  autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                        <option selected disabled>{"select the category"}</option>
                                             {
                                                 categories.map((element:any) => <option value={element._id}>{element.categoryName}</option>)
                                             }
@@ -86,7 +88,7 @@ export default function AdminAddProduct() {
                                     <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">Sub categories</label>
                                     <div className="mt-2">
                                         <select {...register("subCategories")} id="country"  autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                            
+                                            {subCategory.length ? <option selected disabled>{"select the sub category"}</option> : <option selected disabled>{"No category found"}</option>}
                                             {
                                                 subCategory.map((element:any) => <option value={element._id}>{element.subCategoryName}</option>)
 
