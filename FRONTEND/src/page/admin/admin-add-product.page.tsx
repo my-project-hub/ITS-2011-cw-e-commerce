@@ -1,30 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ImageUpload from "../../component/formComponent/image-upload.component.tsx";
 import { CheckBox, DropDown, RadioButton, TextInputWithLabel } from "../../component/formComponent/input.component.tsx";
 import TextEditor from "../../component/text-editor.component.tsx";
 import AdminLayout from "../../layout/admin.layout.tsx";
 import { Controller, useForm } from "react-hook-form";
 import axios from 'axios'
+import { elements } from "chart.js";
 
 export default function AdminAddProduct() {
 
     const [productImages, setProductImages] = useState<any[]>([]);
     const [description, setDescription] = useState<string>("")
     const { register, handleSubmit, control } = useForm();
+    const [categories, setCategories] = useState([])
+    const [selectedCategory,setSelectedCategory]= useState("")
+    const [subCategory,setSubCategory]= useState([])
+
+    useEffect(() => {
+        fetchCategories();
+    },[])
+
+    useEffect(() => {
+        fetchSubCategories();
+    },[selectedCategory])
 
     async function onSubmit(data: any) {
-        const form = new FormData();
+        // const form = new FormData();
         // form.append("description", description)
         console.log(data)
-        const response = await axios.post('/aaa',{
+        const response = await axios.post('/aaa', {
             ...data,
             description,
-            
-            images:productImages
-        },{method:"POST"})   
+            images: productImages
+        }, { method: "POST" })
+    }
 
+    //get categories of products
+    async function fetchCategories() {
+       const response = await axios.get('http://localhost:5000/api/v1/category')
+       setCategories(response.data.data);
+    }
 
-        
+    async function fetchSubCategories() {
+        const response = await axios.get('http://localhost:5000/api/v1/subCategory/'+selectedCategory)
+        setSubCategory(response.data.data);
+    }
+
+    function categoryHandle(event:any){
+        setSelectedCategory(event.target.value)
     }
 
     return (
@@ -49,7 +72,29 @@ export default function AdminAddProduct() {
                                 <TextInputWithLabel labelName="Offered" gap="py-3" /> */}
                             </div>
                             <div className="flex gap-x-5">
-                                <Controller name="categories" control={control} render={({ field }: any) => <DropDown {...field} labelName="Categories" gap="py-3" options={[{ value: "chocolate", label: "Chocolate" },]} />} />
+                                <div className="w-full">
+                                    <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">Categories</label>
+                                    <div className="mt-2">
+                                        <select onChange={categoryHandle}  id="country"  autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                            {
+                                                categories.map((element:any) => <option value={element._id}>{element.categoryName}</option>)
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="w-full">
+                                    <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">Sub categories</label>
+                                    <div className="mt-2">
+                                        <select {...register("subCategories")} id="country"  autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                            
+                                            {
+                                                subCategory.map((element:any) => <option value={element._id}>{element.subCategoryName}</option>)
+
+                                            }
+                                        
+                                        </select>
+                                    </div>
+                                </div>
                                 <Controller name="unit" control={control} render={({ field }: any) => <TextInputWithLabel {...field} labelName="Unit" gap="py-3" />} />
                                 {/* <TextInputWithLabel labelName="Categories" gap="py-3" />
                                 <TextInputWithLabel labelName="Unit" gap="py-3" /> */}
@@ -81,10 +126,10 @@ export default function AdminAddProduct() {
                                     <div>
                                         <label htmlFor="">Refundable</label>
                                     </div>
-                                    <div className="flex items-center gap-2">  
-                                    <Controller name="refundable" defaultValue={"yes"} control={control} render={({ field }) => <RadioButton  {...field} value="yes" radioLabelName="Yes" radioBtnName="refundable" />} /> 
-                                    <Controller name="refundable" defaultValue={"no"} control={control} render={({ field }) => <RadioButton {...field} value="no" radioLabelName="No" radioBtnName="refundable" />} />            
-           
+                                    <div className="flex items-center gap-2">
+                                        <Controller name="refundable" defaultValue={"yes"} control={control} render={({ field }) => <RadioButton  {...field} value="yes" radioLabelName="Yes" radioBtnName="refundable" />} />
+                                        <Controller name="refundable" defaultValue={"no"} control={control} render={({ field }) => <RadioButton {...field} value="no" radioLabelName="No" radioBtnName="refundable" />} />
+
                                         {/* <RadioButton radioLabelName="Yes" radioBtnName="refundable" />
                                         <RadioButton radioLabelName="No" radioBtnName="refundable" /> */}
                                     </div>
@@ -94,8 +139,8 @@ export default function AdminAddProduct() {
                                         <label htmlFor="">Warranty</label>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                    <Controller name="warranty" defaultValue={"yes"} control={control} render={({ field }) => <RadioButton  {...field} value="yes" radioLabelName="Yes" radioBtnName="warranty" />} /> 
-                                    <Controller name="warranty" defaultValue={"no"} control={control} render={({ field }) => <RadioButton {...field} value="no" radioLabelName="No" radioBtnName="warranty" />} /> 
+                                        <Controller name="warranty" defaultValue={"yes"} control={control} render={({ field }) => <RadioButton  {...field} value="yes" radioLabelName="Yes" radioBtnName="warranty" />} />
+                                        <Controller name="warranty" defaultValue={"no"} control={control} render={({ field }) => <RadioButton {...field} value="no" radioLabelName="No" radioBtnName="warranty" />} />
                                         {/* <RadioButton radioLabelName="Yes" radioBtnName="warranty" />
                                         <RadioButton radioLabelName="No" radioBtnName="warranty" /> */}
                                     </div>

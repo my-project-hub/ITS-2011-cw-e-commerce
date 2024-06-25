@@ -7,6 +7,7 @@ import auth from './controller/auth.controller';
 import 'dotenv/config'
 import product from './controller/product.controller';
 import category from './controller/category.controller';
+import subCategory from './controller/subcategory.controller';
 
 export const app = express();
 app.use(cors("*"))
@@ -18,6 +19,7 @@ app.use("/api/v1/auth", auth)
 app.use("/api/v1/user", user)
 app.use("/api/v1/product", product)
 app.use("/api/v1/category", category)
+app.use("/api/v1/subCategory", subCategory)
 
 
 

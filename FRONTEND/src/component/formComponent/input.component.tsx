@@ -20,21 +20,21 @@ export function TextInputWithLabel(prop: TextInputProp) {
 }
 
 
-interface DropDownPorp {
-    options: any[]
-    labelName: string
-    name?:string
-}
+// interface DropDownPorp {
+//     options: any[]
+//     labelName: string
+//     name?:string
+// }
 
-export function DropDown(prop: DropDownPorp) {
+export function DropDown(prop: any) {
     return (
         <div className="w-full">
             <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">{prop.labelName}</label>
             <div className="mt-2">
-                <select name={prop.name}  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                <select {...prop} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                     {
                         prop.options.map(
-                            element => <option  value={element.value}>{element.value}</option>
+                            (element:any) => <option value={element.value}>{element.value}</option>
                         )
                     }
                 </select>
