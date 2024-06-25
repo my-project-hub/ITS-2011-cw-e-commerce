@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { faCross } from "@fortawesome/free-solid-svg-icons";
 import { ActionFunction } from "react-router";
 
-export default function ImageUpload() {
+export default function ImageUpload(prop:any) {
 
 
     const {register,handleSubmit,setValue} = useForm();
@@ -32,6 +32,13 @@ export default function ImageUpload() {
                     return [...prev, response]
                 })
 
+                prop.images((prev:any) => {
+                    if(prev.length >= 3){
+                        return prev;
+                    }
+                    return [...prev, response]
+                });
+                
             }
         })
     }
@@ -39,7 +46,11 @@ export default function ImageUpload() {
     function removeImage(key:any){
         setImage(prev => {
             return prev.filter((element , index) => index != key)
-        })
+        });
+
+        prop.images((prev:any) => {
+            return prev.filter((element:any , index:number) => index != key)
+        });
     }
 
     return (

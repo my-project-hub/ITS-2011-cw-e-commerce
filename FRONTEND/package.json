@@ -21,6 +21,7 @@
     "@hookform/resolvers": "^3.4.2",
     "@material-tailwind/react": "^2.1.9",
     "@popperjs/core": "^2.11.8",
+    "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.2",
     "date-and-time": "^3.3.0",

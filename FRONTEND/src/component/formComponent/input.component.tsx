@@ -1,6 +1,9 @@
+import { Field } from "@headlessui/react";
+
 interface TextInputProp {
     gap: string;
     labelName: string
+    name?:string
 }
 
 export function TextInputWithLabel(prop: TextInputProp) {
@@ -9,7 +12,7 @@ export function TextInputWithLabel(prop: TextInputProp) {
             <div className={`sm:col-span-3 md:w-full ${prop.gap}`}>
                 <label htmlFor="first-name" className="after:content-['*'] after:ml-1 after:text-red-500 block text-sm font-medium leading-6 text-gray-900">{prop.labelName}</label>
                 <div className="mt-2">
-                    <input type="text" name="first-name" id="first-name" autoComplete="given-name" className="pl-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                    <input type="text" {...prop} id="first-name" autoComplete="given-name" className="pl-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                 </div>
             </div>
         </>
@@ -18,18 +21,20 @@ export function TextInputWithLabel(prop: TextInputProp) {
 
 
 interface DropDownPorp {
-    options: string[]
+    options: any[]
     labelName: string
+    name?:string
 }
+
 export function DropDown(prop: DropDownPorp) {
     return (
         <div className="w-full">
             <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">{prop.labelName}</label>
             <div className="mt-2">
-                <select id="country" name="country" autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                <select name={prop.name}  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                     {
                         prop.options.map(
-                            element => <option>{element}</option>
+                            element => <option  value={element.value}>{element.value}</option>
                         )
                     }
                 </select>
@@ -58,11 +63,11 @@ export function DropDownSuggestions(prop: DropDownSuggesstionsProp) {
     )
 }
 
-export function CheckBox(){
+export function CheckBox(prop:any){
     return (
         <>
              <div className="flex h-6 items-center">
-                <input id="comments" name="comments" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                <input {...prop} type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
               </div>
         </>
     )
@@ -72,12 +77,13 @@ export function CheckBox(){
 interface RadioButtonProp{
     radioLabelName:string
     radioBtnName:string
+    value:string
 }
 export function RadioButton(prop:RadioButtonProp){
     return (
         <>
             <div className="flex items-center gap-x-3">
-              <input id="push-everything" name={`${prop.radioBtnName}`} type="radio" className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+              <input   id="push-everything" {...prop} value={prop.value} type="radio"  className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" />
               <label htmlFor="push-everything" className="block text-sm font-medium leading-6 text-gray-900">{prop.radioLabelName}</label>
             </div>
         </>
