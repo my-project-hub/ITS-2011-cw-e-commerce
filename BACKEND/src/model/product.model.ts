@@ -7,11 +7,12 @@ const productSchema = new Schema({
     offered:Number,
     subCategory:{type:Types.ObjectId,ref:"SubCategory"},
     description:String,
-    featureProduct:Boolean,
-    trendingProducts:Boolean,
-    topSellingProducts:Boolean,
+    featureProduct:{type:Boolean,default:false},
+    trendingProduct:{type:Boolean,default:false},
+    topSellingProduct:{type:Boolean,default:false},
     refundable:String,
-    warranty:String
+    warranty:String,
+    images:[String]
 });
 
 const productModel = mongoose.model('Product',productSchema);

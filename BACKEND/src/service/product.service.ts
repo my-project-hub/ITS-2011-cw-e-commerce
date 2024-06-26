@@ -22,7 +22,8 @@ export async function imageBase64Convert(request: Request, response: Response) {
 export async function saveProduct(req, res) {
     try {
         const requestBody = req.body;
-
+        requestBody.images = requestBody.images.map((element) => element.base64Image)
+    
         const product = await productModel.create({
             ...requestBody
         });
@@ -31,6 +32,7 @@ export async function saveProduct(req, res) {
         res.status(201).end();
 
     } catch (e) {
-        res.send({ error: "internal server error" })
+        console.error(e);
+        res.status(500).send({ error: "internal server error" })
     }
 }
