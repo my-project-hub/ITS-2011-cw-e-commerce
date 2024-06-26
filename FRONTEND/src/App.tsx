@@ -32,6 +32,7 @@ function App() {
           <Route path='/register' element={<CustomerRegister />}/>
           <Route path='/categories/top/product/featured/:productId' element={<ProductView />}/>
           <Route path='/category/:categoryName/:subCategory' element={<ProductList />}/>
+          <Route path='/category/:categoryName/:subCategory/:productId' element={<ProductView />}/>
         </Routes>
       </BrowserRouter>
     </>

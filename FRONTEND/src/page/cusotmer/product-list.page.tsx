@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import ProductViewLayout from "../../layout/product-view.layout";
 import axios from "axios";
 import { useParams } from "react-router";
-import ProductCard from "../../component/product-card.component";
+import ProductCard from "../../component/product-card-2.component";
+// import ProductCard from "../../component/product-card.component";
 
 
 export default function ProductList() {
@@ -12,7 +13,7 @@ export default function ProductList() {
 
     useEffect(() => {
         fetchProducts()
-    });
+    },[]);
 
     async function fetchProducts() {
         try {
@@ -23,11 +24,13 @@ export default function ProductList() {
         }
     }
 
+    console.log(products)
+
     return (
         <>
             <ProductViewLayout>
-                <div className="w-full mt-5">
-                    {products.map((element) => <ProductCard />)}
+                <div className="w-full mt-16">
+                    {products.map((element:any) => <ProductCard navigationLink={element._id} productImage={element?.images[0]} />)}
                 </div>
             </ProductViewLayout>
         </>

@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BreadScrumb, { BreadScrumbItem } from "../../component/breadcrumb.component";
 import { ColorSelector } from "../../component/product-card-2.component";
 import { DemoLayout } from "../../layout/demo.layout";
 import ProductViewLayout from "../../layout/product-view.layout";
+import axios from "axios";
+import { useParams } from "react-router";
 
 export default function ProductView() {
 
+    const {productId} = useParams()
     const [color,setColor] = useState("")
+    const [productDetails,setProductDetails]= useState(null)
+
+
+    useEffect(() => {
+        fetchProductById()
+    },[]);
+
+    async function fetchProductById(){
+        try{
+            const response = await axios.get('http://localhost:5000/api/v1/product/'+productId);
+            setProductDetails(response.data.data)
+        }catch(e){
+
+        }
+    }
 
     return (
         <>

@@ -48,3 +48,15 @@ export async function findProductListByCategoryAndSubCcategory(req,res){
         console.log(e)
     }
 }
+
+export async function findProductById(req,res){
+    
+    const {productId} = req.params;
+    try{
+       const product = await productModel.findById(productId);
+        res.send({data:product})
+    }catch(e){
+        console.log(e);
+        res.send({error:"internal server error"})
+    }
+}
