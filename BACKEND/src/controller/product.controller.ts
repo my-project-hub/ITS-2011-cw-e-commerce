@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { imageBase64Convert, saveProduct } from "../service/product.service";
+import { findProductListByCategoryAndSubCcategory, imageBase64Convert, saveProduct } from "../service/product.service";
 import multer from 'multer'
 
 const storage = multer.memoryStorage();
@@ -9,6 +9,7 @@ const product = Router();
 
 product.post('/image',upload.single('product_image'),imageBase64Convert)
 product.post('',saveProduct)
+product.get('/:category/:subCategory',findProductListByCategoryAndSubCcategory)
 
 
 

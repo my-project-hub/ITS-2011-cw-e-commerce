@@ -28,7 +28,7 @@ export default function AdminAddProduct() {
         // const form = new FormData();
         // form.append("description", description)
         console.log(data)
-        const response = await axios.post('/aaa', {
+        const response = await axios.post('http://localhost:5000/api/v1/product', {
             ...data,
             description,
             images: productImages

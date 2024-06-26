@@ -6,3 +6,5 @@ const categorySchema =  new Schema({
 
 const categoryModel = mongoose.model('Category',categorySchema);
 export default categoryModel;
+
+

@@ -1,6 +1,8 @@
 import { encodeBase64 } from "bcryptjs";
 import { Request, Response } from "express";
 import productModel from "../model/product.model";
+import { findCategory } from "./category.service";
+import { findSubCategory } from "./subCategory.service";
 
 export async function imageBase64Convert(request: Request, response: Response) {
     try {
@@ -34,5 +36,15 @@ export async function saveProduct(req, res) {
     } catch (e) {
         console.error(e);
         res.status(500).send({ error: "internal server error" })
+    }
+}
+
+export async function findProductListByCategoryAndSubCcategory(req,res){
+    try{
+        const {_id} = await findSubCategory(req,res);
+        const products = await productModel.find({subCategory:_id})
+        res.send({data:products});
+    }catch(e){
+        console.log(e)
     }
 }

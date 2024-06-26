@@ -26,7 +26,7 @@ export default function ImageUpload(prop:any) {
                 const response = await res.json();
                 console.log(response);
                 setImage(prev => {
-                    if(prev.length >= 3){
+                    if(prev.length >= 1){
                         return prev;
                     }
                     return [...prev, response]

@@ -11,7 +11,7 @@ import subCategory from './controller/subcategory.controller';
 
 export const app = express();
 app.use(cors("*"))
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit:"10mb"}))
 const port = 5000;
 
 

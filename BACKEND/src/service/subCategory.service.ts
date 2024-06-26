@@ -1,5 +1,6 @@
 import { Request } from "express";
 import subCategoryModel from "../model/subcategory.model";
+import { findCategory } from "./category.service";
 
 export async function saveSubCategory(req,res){
     
@@ -30,5 +31,18 @@ export async function getSubCategories(req:Request,res){
          res.send({data:subCategoryList})
     }catch(e){
         console.log(e);
+    }
+}
+
+export async function findSubCategory(req, res) {
+
+    try {
+        const {_id} = await findCategory(req,res);
+        const {subCategory} = req.params
+        const category = await subCategoryModel.findOne({ subCategoryName:subCategory,categoryId:_id });
+        return category;
+    } catch (e) {
+        console.log(e)
+        res.status(500).send({error:"internal server error"})
     }
 }

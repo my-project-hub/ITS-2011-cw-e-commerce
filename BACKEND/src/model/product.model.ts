@@ -12,7 +12,8 @@ const productSchema = new Schema({
     topSellingProduct:{type:Boolean,default:false},
     refundable:String,
     warranty:String,
-    images:[String]
+    images:[String],
+    unit:Number
 });
 
 const productModel = mongoose.model('Product',productSchema);
