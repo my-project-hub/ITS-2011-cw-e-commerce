@@ -34,7 +34,7 @@ export default function ProductList() {
                     <BreadScrumb />
                 </div>
                 <div className="w-full mt-16">
-                    {products.map((element:any) => <ProductCard navigationLink={element._id} productImage={element?.images[0]} />)}
+                    {products.map((element:any) => <ProductCard productName={element.title} offered={element.offered} selling={element.selling} navigationLink={element._id} productImage={element?.images[0]} />)}
                 </div>
             </ProductViewLayout>
         </>

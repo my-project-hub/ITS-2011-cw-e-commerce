@@ -1,4 +1,5 @@
 import axios from "axios";
+import { elements } from "chart.js";
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
@@ -7,6 +8,9 @@ import { Link } from "react-router-dom";
 interface Prop {
     productImage: string
     navigationLink: string
+    selling:string
+    offered:string
+    productName:String
 }
 
 export default function ProductCard(prop: Prop) {
@@ -34,15 +38,15 @@ export default function ProductCard(prop: Prop) {
     return (
         <>
             <div className="w-[313px] border px-2 pb-4 rounded-lg " >
-                <div className="w-full h-[313px] " onClick={() => navigate({ pathname: "/categories/top/product/featured/123" })}>
+                <div className="w-full h-[313px] " onClick={() => navigate({ pathname: prop.navigationLink })}>
                     <img src={prop.productImage} alt="" />
                 </div>
                 <div className="">
                     <Link className="font-bold mt-2 hover:text-[#9c4399] cursor-pointer" to={prop.navigationLink}>
-                        Girls Lehenga Choli
+                        {prop.productName}
                     </Link>
                     {/* <p className="font-bold mt-2 hover:text-[#9c4399] cursor-pointer">Girls Lehenga Choli</p> product name */}
-                    <p>Rs <span>1000.00 <span> </span></span><span className="text-gray-500 line-through"><span>Rs</span> 500.00</span></p>
+                    <p>Rs <span>{Number.parseFloat(prop.offered).toFixed(2)}<span> </span></span><span className="text-gray-500 line-through"><span>Rs </span>{Number.parseFloat(prop.selling).toFixed(2)}</span></p>
                     <small>Tax: Rs 100.00</small>
                     {/* <div className="flex gap-1"> */}
                     {/* <div className="grid grid-cols-5 mt-2">
