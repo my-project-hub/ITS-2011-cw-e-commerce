@@ -42,7 +42,7 @@ export async function saveProduct(req, res) {
 export async function findProductListByCategoryAndSubCcategory(req,res){
     try{
         const {_id} = await findSubCategory(req,res);
-        const products = await productModel.find({subCategory:_id})
+        const products = await productModel.find({subCategory:_id,})
         res.send({data:products});
     }catch(e){
         console.log(e)

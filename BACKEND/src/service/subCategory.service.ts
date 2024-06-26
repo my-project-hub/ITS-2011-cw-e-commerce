@@ -38,7 +38,9 @@ export async function findSubCategory(req, res) {
 
     try {
         const {_id} = await findCategory(req,res);
-        const {subCategory} = req.params
+        let {subCategory} = req.params
+        subCategory = subCategory.replace('-',' ')
+        console.log(subCategory)
         const category = await subCategoryModel.findOne({ subCategoryName:subCategory,categoryId:_id });
         return category;
     } catch (e) {
