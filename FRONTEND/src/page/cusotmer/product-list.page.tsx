@@ -3,6 +3,7 @@ import ProductViewLayout from "../../layout/product-view.layout";
 import axios from "axios";
 import { useParams } from "react-router";
 import ProductCard from "../../component/product-card-2.component";
+import BreadScrumb from "../../component/breadcrumb.component";
 // import ProductCard from "../../component/product-card.component";
 
 
@@ -29,6 +30,9 @@ export default function ProductList() {
     return (
         <>
             <ProductViewLayout>
+                <div>
+                    <BreadScrumb />
+                </div>
                 <div className="w-full mt-16">
                     {products.map((element:any) => <ProductCard navigationLink={element._id} productImage={element?.images[0]} />)}
                 </div>

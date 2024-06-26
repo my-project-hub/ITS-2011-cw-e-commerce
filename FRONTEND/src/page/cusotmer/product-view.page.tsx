@@ -63,7 +63,7 @@ export default function ProductView() {
                             <p className="font-bold text-lg">Available Options</p>
                             <p className="mt-1">Color : </p>
                             <ColorSelector colors="red" setColor={setColor} />
-                            
+                            <button className="mt-3 text-white py-3 px-5 rounded-lg bg-blue-700">Buy</button>
                         </div>
 
                     </div>
