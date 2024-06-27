@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import BreadScrumb, { BreadScrumbItem } from "../../component/breadcrumb.component";
 import { ColorSelector } from "../../component/product-card-2.component";
 import { DemoLayout } from "../../layout/demo.layout";
 import ProductViewLayout from "../../layout/product-view.layout";
 import axios from "axios";
 import { useParams } from "react-router";
+import CartContext from "../../context/cart.context";
 
 export default function ProductView() {
 
     const {productId} = useParams()
     const [color,setColor] = useState("")
     const [productDetails,setProductDetails]= useState<any>(null)
+    const {setCart} = useContext(CartContext);
+   
 
 
     useEffect(() => {
@@ -63,7 +66,7 @@ export default function ProductView() {
                             <p className="font-bold text-lg">Available Options</p>
                             {/* <p className="mt-1">Color : </p> */}
                             {/* <ColorSelector colors="red" setColor={setColor} /> */}
-                            <button className="mt-3 text-white py-3 px-5 rounded-lg bg-blue-700">Add to cart</button>
+                            <button className="mt-3 text-white py-3 px-5 rounded-lg bg-blue-700" onClick={() => setCart(productId)}>Add to cart</button>
                         </div>
 
                     </div>

@@ -1,4 +1,4 @@
 import { createContext } from "react";
 
-const CartContext = createContext<any>(null);
+const CartContext = createContext<any>([]);
 export default CartContext;
