@@ -10,7 +10,7 @@ export default function ProductView() {
 
     const {productId} = useParams()
     const [color,setColor] = useState("")
-    const [productDetails,setProductDetails]= useState(null)
+    const [productDetails,setProductDetails]= useState<any>(null)
 
 
     useEffect(() => {
@@ -35,25 +35,25 @@ export default function ProductView() {
                 <section className="mt-4 flex gap-5">
                     <div>
                         <div className="border w-[543px] h-[543px]">
-                            <img className="w-full h-full" src="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg" alt="" />
+                            <img className="w-full h-full object-contain" src={productDetails?.images[0]} alt="" />
                         </div>
                         <div className="mt-3">
                             <div className="w-[113px] h-[113px] border">
-                                <img src="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg" alt="" />
+                                <img src={productDetails?.images[0]} alt="" />
                             </div>
                         </div>
                     </div>
                     <div className="flex-1">
-                        <p className="text-2xl font-bold">Girld Lehenga Choli</p>
+                        <p className="text-2xl font-bold">{productDetails?.title}</p>
                         <hr className="my-3 bg-gray-100 text-gray-500"/>
-                        <p className="text-2xl font-bold">Rs<span>1500.00</span> </p>
+                        <p className="text-2xl font-bold">Rs <span>{Number.parseFloat(productDetails?.offered).toFixed(2)}</span> </p>
                         <hr className="my-3 bg-gray-100 text-gray-500"/>
                         <ul className="font-medium">
                             <li>Brand:
                                 <p className="inline-block ml-2 text-gray-600">Smile</p>
                             </li>
                             <li>Product Code:
-                                <p className="inline-block ml-2 text-gray-600">B07GLJP86C</p>
+                                <p className="inline-block ml-2 text-gray-600">{productDetails?._id.toUpperCase()}</p>
                             </li>
                             <li>Availability:
                                 <p className="inline-block ml-2 text-white bg-green-300 p-1 rounded-md">In Stock</p>
@@ -63,9 +63,16 @@ export default function ProductView() {
                             <p className="font-bold text-lg">Available Options</p>
                             {/* <p className="mt-1">Color : </p> */}
                             {/* <ColorSelector colors="red" setColor={setColor} /> */}
-                            <button className="mt-3 text-white py-3 px-5 rounded-lg bg-blue-700">Buy</button>
+                            <button className="mt-3 text-white py-3 px-5 rounded-lg bg-blue-700">Add to cart</button>
                         </div>
 
+                    </div>
+                </section>
+                <section className="mt-5">
+                    <p className="font-bold text-xl">Description :</p>
+                    <div dangerouslySetInnerHTML={{__html:productDetails?.description}}>
+                        {/* description body */}
+                        {/* {productDetails.description} */}
                     </div>
                 </section>
             </ProductViewLayout>

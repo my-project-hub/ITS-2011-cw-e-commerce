@@ -9,8 +9,6 @@ export async function imageBase64Convert(request: Request, response: Response) {
         const file = request.file
         const base64Image = file.buffer.toString('base64');
         // console.log(request.file.buffer.length)
-
-
         // console.log(encoded);
 
         response.json({ base64Image: 'data:image/jpeg;base64,' + base64Image }).send();
