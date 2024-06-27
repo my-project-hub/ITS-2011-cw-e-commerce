@@ -9,6 +9,7 @@ import CustomerRegister from './page/cusotmer/customer-regiseter.page.tsx';
 import CustomerHome from './page/cusotmer/customer-home.page.tsx';
 import ProductView from './page/cusotmer/product-view.page.tsx';
 import ProductList from './page/cusotmer/product-list.page.tsx';
+import Checkout from './page/cusotmer/checkout.page.tsx';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
         <Route path='/' element={<CustomerHome />}/>
           <Route path='/login' element={<CusotmerLogin />}/>
           <Route path='/register' element={<CustomerRegister />}/>
+          <Route path='/checkout' element={<Checkout />}/>
           <Route path='/categories/top/product/featured/:productId' element={<ProductView />}/>
           <Route path='/category/:categoryName/:subCategory' element={<ProductList />}/>
           <Route path='/category/:categoryName/:subCategory/:productId' element={<ProductView />}/>

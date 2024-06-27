@@ -2,6 +2,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import CartContext from "../context/cart.context";
+import { Link } from "react-router-dom";
 
 
 export default function CartComponent() {
@@ -45,7 +46,9 @@ export default function CartComponent() {
                         </MenuItem> */}
                     </div>
                     <MenuItem>
-                        <button className={"bg-[#9c4399] text-white p-2 rounded-lg"}>Checkout</button>
+                        <button className={"bg-[#9c4399] text-white p-2 rounded-lg"}>
+                            <Link to={"/checkout"}>Checkout</Link>
+                        </button>
                     </MenuItem>
                 </MenuItems>
             </Menu>
