@@ -24,7 +24,7 @@ export default function CartComponent() {
                         {cartItems.map((element: any) => (
                             <MenuItem>
                                 <div>
-                                    <CartItems />
+                                    <CartItems {...element}/>
                                 </div>
                             </MenuItem>
                         ))}
@@ -54,16 +54,16 @@ export default function CartComponent() {
 }
 
 
-function CartItems() {
+function CartItems(prop:any) {
     return (
         <>
             <div className="flex items-center p-1 text-nowrap">
                 <div>
-                    <img className="max-w-[65px] border p-1" src="https://www.ecomdeveloper.com/demo/image/cache/catalog/products/girls/ethnic/ETH0050-0-315x315.jpg" alt="" />
+                    <img className="max-w-[65px] border p-1" src={prop.images[0]} alt="" />
                 </div>
                 <div className="flex flex-col gap-2 ml-2">
-                    <p>Girls Lehenga Choli</p>
-                    <p><span>1</span> X <span>Rs: <span>{1000.00}</span></span></p>
+                    <p>{prop.title}</p>
+                    <p><span>1</span> X <span>Rs: <span>{Number.parseFloat(prop.offered).toFixed(2)}</span></span></p>
                 </div>
                 <div className="relative top-[-15px] right-[-10px] mx-2 cursor-pointer">
                     <XCircleIcon className="size-6 text-blue-500" fontSize={"15px"} />
