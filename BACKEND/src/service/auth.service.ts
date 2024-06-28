@@ -22,11 +22,21 @@ export async function validateUser(req: Request, res: Response) {
                 email: user.email,
 
             },
+            process.env.ACCESSTOKEN_KEY
+        )
+
+
+        const refresh = jwt.sign(
+            {
+                _id: user.id,
+                email: user.email,
+
+            },
             process.env.REFRESHTOKEN_KEY
         )
 
         // res.cookie("acessToken",accessToken,{httpOnly:true,secure:true}).send();
-        res.json({accessToken}).send();
+        res.cookie("token", refresh, { httpOnly: true, secure: true }).send({ data: { accessToken } });
 
     } catch (e) {
         if (e.message === "can not found user with email") res.status(401).json({ message: e.message }).send()
@@ -47,7 +57,7 @@ export async function validateAdmin(req: Request, res: Response) {
 
         //if user is avaialble check the password
         const validate = false;
-        if(!(admin.password === password)) throw new Error("password is wrong")
+        if (!(admin.password === password)) throw new Error("password is wrong")
         // if (!validate) throw new Error("password is wrong")
 
         const accessToken = jwt.sign(
@@ -60,12 +70,42 @@ export async function validateAdmin(req: Request, res: Response) {
         )
 
         // res.cookie("acessToken",accessToken,{httpOnly:true,secure:true}).send();
-        res.json({accessToken}).send();
+        res.json({ accessToken }).send();
 
     } catch (e) {
         if (e.message === "can not found user with email") res.status(401).json({ message: e.message }).send()
         if (e.message === "password is wrong") res.status(401).json({ message: e.message }).send()
         res.status(500).send()
+    }
+}
+
+
+export async function getNewAccessToken(req: Request, res: Response) {
+    const { token } = req.cookies;
+    const userPayload:any = jwt.verify(token,process.env.REFRESHTOKEN_KEY);
+    try {
+
+        if(!userPayload)res.status(401).send({error:"un authorized"})
+        // const user = jwt.verify(token,process.env.REFRESHTOKEN_KEY);
+        
+        // const { email, password } = req.body;
+        //check the user available with the requested email
+        const user = await usermodel.findById(userPayload._id);
+        
+        const accessToken = jwt.sign(
+            {
+                _id: user.id,
+                email: user.email,
+
+            },
+            process.env.ACCESSTOKEN_KEY
+        )
+        // res.cookie("acessToken",accessToken,{httpOnly:true,secure:true}).send();
+        res.send({ data: { accessToken } });
+        
+
+    } catch (e) {
+        res.send({ error: "internal server error" })
     }
 
 }
