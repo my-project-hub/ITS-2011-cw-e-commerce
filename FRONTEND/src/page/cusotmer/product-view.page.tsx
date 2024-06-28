@@ -5,7 +5,7 @@ import { DemoLayout } from "../../layout/demo.layout";
 import ProductViewLayout from "../../layout/product-view.layout";
 import axios from "axios";
 import { useParams } from "react-router";
-import CartContext from "../../context/cart.context";
+import CartContext from "../../context/context";
 
 export default function ProductView() {
 

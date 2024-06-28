@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CartContext from "./cart.context";
+import CartContext from "./context";
 import axios from "axios";
 
 export default function Provider({ children }: React.PropsWithChildren) {

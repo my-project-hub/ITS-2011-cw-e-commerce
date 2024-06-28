@@ -1,7 +1,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
-import CartContext from "../context/cart.context";
+import CartContext from "../context/context";
 import { Link } from "react-router-dom";
 
 
