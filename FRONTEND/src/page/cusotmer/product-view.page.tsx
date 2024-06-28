@@ -9,22 +9,22 @@ import CartContext from "../../context/context";
 
 export default function ProductView() {
 
-    const {productId} = useParams()
-    const [color,setColor] = useState("")
-    const [productDetails,setProductDetails]= useState<any>(null)
-    const {setCart} = useContext(CartContext);
-   
+    const { productId } = useParams()
+    const [color, setColor] = useState("")
+    const [productDetails, setProductDetails] = useState<any>(null)
+    const { setCart } = useContext(CartContext);
+
 
 
     useEffect(() => {
         fetchProductById()
-    },[]);
+    }, []);
 
-    async function fetchProductById(){
-        try{
-            const response = await axios.get('http://localhost:5000/api/v1/product/'+productId);
+    async function fetchProductById() {
+        try {
+            const response = await axios.get('http://localhost:5000/api/v1/product/' + productId);
             setProductDetails(response.data.data)
-        }catch(e){
+        } catch (e) {
 
         }
     }
@@ -48,9 +48,9 @@ export default function ProductView() {
                     </div>
                     <div className="flex-1">
                         <p className="text-2xl font-bold">{productDetails?.title}</p>
-                        <hr className="my-3 bg-gray-100 text-gray-500"/>
+                        <hr className="my-3 bg-gray-100 text-gray-500" />
                         <p className="text-2xl font-bold">Rs <span>{Number.parseFloat(productDetails?.offered).toFixed(2)}</span> </p>
-                        <hr className="my-3 bg-gray-100 text-gray-500"/>
+                        <hr className="my-3 bg-gray-100 text-gray-500" />
                         <ul className="font-medium">
                             <li>Brand:
                                 <p className="inline-block ml-2 text-gray-600">Smile</p>
@@ -73,7 +73,7 @@ export default function ProductView() {
                 </section>
                 <section className="mt-5">
                     <p className="font-bold text-xl">Description :</p>
-                    <div dangerouslySetInnerHTML={{__html:productDetails?.description}}>
+                    <div dangerouslySetInnerHTML={{ __html: productDetails?.description }}>
                         {/* description body */}
                         {/* {productDetails.description} */}
                     </div>
