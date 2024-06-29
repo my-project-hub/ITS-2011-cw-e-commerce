@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useLayoutEffect, useState } from "react";
 import axiosRetry from 'axios-retry'
+import { useNavigate } from "react-router";
 
 axiosRetry(axios, { retries: 3 });
 
@@ -11,18 +12,26 @@ const api = axios.create({
 });
 
 function useAuth() {
+    const navigate = useNavigate();
     const [token, setToken] = useState<any>();
 
     useEffect(() => {
         fetchMe();
     }, []);
 
+    // useEffect(() => {
+    //     if(!token) navigate("/login")
+    // },[token])
+
     async function fetchMe() {
         try {
             const response = await api.post('http://localhost:5000/api/v1/auth/refreshToken');
             // console.log(response.data);
+            if(!response.data.data.accessToken) navigate("/login")
             setToken(response.data.data.accessToken);
+            
         } catch (e) {
+            navigate("/login")
             console.error(e);
         }
     }
