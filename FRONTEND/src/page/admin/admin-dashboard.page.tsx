@@ -1,9 +1,16 @@
 import BarChart from "../../component/bar-chart.component.tsx";
 import InfoCard from "../../component/info-card.component.tsx";
 import OrderStatistics from "../../component/order-static.component.tsx";
+import useAuth from "../../hooks/auth.hook.ts";
 import AdminLayout from "../../layout/admin.layout.tsx";
 
 export default function AdminDashboard(){
+
+
+    const {api,token} = useAuth();
+    // console.log("tt",token)
+    
+
     return(
         <>
             <AdminLayout>

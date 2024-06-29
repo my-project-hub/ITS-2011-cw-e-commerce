@@ -20,7 +20,8 @@ export default function AdminLogin() {
             body:JSON.stringify(data),
             headers:{
                 "Content-Type": "application/json"
-            }
+            },
+            credentials: 'include',
         }).then(async e => {
             if(!e.ok){
                 const error = await e.json()

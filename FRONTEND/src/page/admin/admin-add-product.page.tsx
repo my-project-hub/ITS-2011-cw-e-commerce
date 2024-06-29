@@ -5,6 +5,7 @@ import TextEditor from "../../component/text-editor.component.tsx";
 import AdminLayout from "../../layout/admin.layout.tsx";
 import { Controller, useForm } from "react-hook-form";
 import axios from 'axios'
+import useAuth from "../../hooks/auth.hook.ts";
 
 
 export default function AdminAddProduct() {
@@ -14,7 +15,9 @@ export default function AdminAddProduct() {
     const { register, handleSubmit, control } = useForm();
     const [categories, setCategories] = useState([])
     const [selectedCategory,setSelectedCategory]= useState("")
-    const [subCategory,setSubCategory]= useState([])
+    const [subCategory,setSubCategory]= useState([]);
+    const {api,token} = useAuth();
+    console.log("tt",token)
 
     useEffect(() => {
         fetchCategories();
@@ -28,11 +31,20 @@ export default function AdminAddProduct() {
         // const form = new FormData();
         // form.append("description", description)
         console.log(data)
-        const response = await axios.post('http://localhost:5000/api/v1/product', {
+        try{
+
+        const response = await api.post('http://localhost:5000/api/v1/product', {
             ...data,
             description,
-            images: productImages
+            images: productImages,
+            
         }, { method: "POST" })
+
+        }catch(e){
+            console.error(e);
+            
+        }
+        
     }
 
     //get categories of products
